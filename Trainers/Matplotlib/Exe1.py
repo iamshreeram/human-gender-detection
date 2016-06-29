@@ -43,7 +43,11 @@ ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='hot')
 plt.show()
 
 '''
-#This is to create graph
+
+# git checkout master
+# git push origin +HEAD
+
+# This is to create graph
 import numpy as np
 import matplotlib.pyplot as plt
 
