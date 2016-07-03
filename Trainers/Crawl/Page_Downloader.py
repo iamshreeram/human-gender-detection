@@ -1,5 +1,8 @@
 import HTMLParser
 import urllib
+import time
+
+#Pulls all strings from the website
 
 urlText = []
 
@@ -7,8 +10,10 @@ urlText = []
 class parseText(HTMLParser.HTMLParser):
 
     def handle_data(self, data):
-        if data != '\n':
-            urlText.append(data)
+        #if data != '\n':
+        urlText.append(data)
+        print urlText
+        time.sleep(2)
 
 
 #Create instance of HTML parser
