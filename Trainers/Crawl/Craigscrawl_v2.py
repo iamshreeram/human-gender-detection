@@ -124,6 +124,7 @@ def search_all():
 
             '''
             ######### If condition is to choose the url for searching ..
+            ######################################
             if page.pop(0) > 0:
                 url = "http://" + city + ".craigslist.org/search/" + "sss?s=" + str(page) + "&query=" + query.replace(' ', '+')  + "&minAsk=" + pricemin + "&maxAsk=" + pricemax
                 #&catAbb=sss
