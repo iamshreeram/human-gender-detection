@@ -95,7 +95,6 @@ def search_all():
 
 
         pg = pglist.pop(0)
-
         print "*********** PG ************ ", pg
         time.sleep(3)
 
@@ -117,7 +116,7 @@ def search_all():
         time.sleep(3)
 
         for page in numpages:
-            print "searching...."
+            print "searching..."
             page = page*100
 
             url = "http://" + city + ".craigslist.org/search/" + "sss?s=" + str(page) + "&catAbb=sss&query=" + query.replace(' ', '+')  + "&minAsk=" + pricemin + "&maxAsk=" + pricemax
