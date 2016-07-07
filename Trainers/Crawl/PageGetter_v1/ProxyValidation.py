@@ -1,7 +1,9 @@
 import random
-import requests
-import LoadUserAgents
 import re
+
+import requests
+
+from Crawl.LoadUserAgents_v1 import LoadUserAgents
 
 p=re._compile('ab*')
 
