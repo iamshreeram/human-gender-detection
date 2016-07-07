@@ -48,6 +48,7 @@ plt.show()
 # git push origin +HEAD
 
 # This is to create graph
+'''
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -55,3 +56,44 @@ n = 20
 Z = np.random.uniform(0,1,n)
 plt.pie(Z)
 plt.show()
+'''
+import time
+import re
+from bs4 import BeautifulSoup
+
+
+pages = re.compile('button pagenum">.*?</span>')
+#pglist = ['button pagenum">no results</span>', 'button pagenum">no results</span>']
+#pg = pglist.pop(0)
+
+var = "<div><span class=\"button pagenum\"><span class=\"range\"><span class=\"rangeFrom\">1</span> to <span class=\"rangeTo\">100</span></span> of <span class=\"totalcount\">159</span></span></div>"
+
+soup = BeautifulSoup(var)
+print soup
+
+'''
+list = pages.findall(var)
+print list
+time.sleep(100)
+'''
+
+'''
+print findall(var)
+print pg
+print pg.find('no')
+print pg.find('results')
+print pg.find('of')
+
+time.sleep(100)
+
+if pg.find('of') == -1:
+    print pg.findall('no')
+    print pg.findall('results')
+    print "Results MINUS ONE"
+elif pg.find('no') == 1:
+    print "Results ONE"
+elif pg.find('no') == 0:
+    print "Results ZERO"
+else:
+    print "printing nothing"
+'''

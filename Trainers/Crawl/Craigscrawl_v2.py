@@ -94,6 +94,7 @@ def search_all():
         time.sleep(3)
 
 
+
         pg = pglist.pop(0)
         print "*********** PG ************ ", pg
         time.sleep(3)
@@ -101,13 +102,14 @@ def search_all():
 
         ##############  LOGIC TO CRAWL EACH PAGE IN WEBSITE ################
 
-        if pg.find('of') == -1:
+        if pg.find('of') == -1: ### If of is not found pg is set to 100 ########
             pg=100
             print pg
 
         else:
             pg =pg[int((pg.find('of'))+3) : int((pg.find('</span>'))) ]
             print pg
+
 
         if int(pg)/100 == 0:
             pg = 100
