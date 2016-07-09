@@ -106,7 +106,7 @@ time.sleep(10)
 
 
 #res = re.sub(prices,'',res)
-res = "<BLOCKQUOTE>"*6 + res + "</BLOCKQUOTE>"*6
+res = "<BLOCKQUOTE>"*3 + res + "</BLOCKQUOTE>"*3
 print res
 time.sleep(10)
 
