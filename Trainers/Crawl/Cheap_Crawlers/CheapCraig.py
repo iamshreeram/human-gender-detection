@@ -10,6 +10,7 @@ from math import *
 results = re.compile('<p.+</p>', re.DOTALL) #Find pattern for search results.
 prices = re.compile('<span class="price".*?</span>', re.DOTALL) #Find pattern for
 pages = re.compile('button pagenum">.*?</span>')
+new_line = re.compile('\n.*?\n')
 delay = 10
 
 ###########Product details and scrap cities and create url list
@@ -65,28 +66,27 @@ msg = response.read()
 
 #3.2. Save the crawled page to variable curr_city_state
 
-
-
-
 ### Out of scope #############
 #4. find if there is any <link rel> with next page true
 #	4.1 Next page search
 
-
 #5. if there is any next page, catch that link with regular expression Go to step 3
 #5.1 If next page exists, Call 3.2
-
-
 
 #6. Capture required details and format
 #6.1 Capture Required details -
 #def format_details:
-city = "fayar"
-cityurl = "http://fayar.craigslist.org/"
+city = "Fayetville"
+cityurl = "http://fayar.craigslist.org"
 res = results.findall(msg)
 print res
 time.sleep(10)
 
+items_curr_city = re.sub(r'\n.*\n','',res[0],flags=re.IGNORECASE)
+print "New message : ",items_curr_city
+res = items_curr_city
+
+'''
 res = str(res)
 print res
 time.sleep(10)
@@ -98,28 +98,22 @@ time.sleep(10)
 res = res.replace(']', '')
 print res
 time.sleep(10)
-
+'''
 
 res = res.replace('<a href="' , '<a href="' + cityurl )
 print res
 time.sleep(10)
-
 
 #res = re.sub(prices,'',res)
 res = "<BLOCKQUOTE>"*3 + res + "</BLOCKQUOTE>"*3
 print res
 time.sleep(10)
 
-
 outp = open("craigresults.html", "a")
-
-
 outp.write(city)
-
 outp.write(str(res))
 print str(res)
 time.sleep(10)
-
 outp.close()
 
 #7. Print report details
