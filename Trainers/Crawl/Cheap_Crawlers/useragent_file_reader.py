@@ -6,7 +6,7 @@ import urllib2
 import webbrowser
 from math import *
 
-new_line = re.compile('<a href=\"//.*?>')
+ua_expr = re.compile(r'\"(.*?)\"')
 
 #<a href="// >
 #file = open('UserAgent','r')
@@ -14,16 +14,14 @@ new_line = re.compile('<a href=\"//.*?>')
 
 print "\n*****************\n"
 
-file1 = open('craigs_html','r')
-msg = file1.read()
-values = new_line.findall(msg)
-print values
+ua_file = open('UserAgent','r')
+useragent = ua_file.read()
+ua_agents = ua_expr.findall(useragent)
+print ua_agents
+
+time.sleep(10)
 
 '''
-values = values.replace('<a href="//' , ' ' )
-print values
-'''
-
 values = [w.replace('<a href="//', '') for w in values]
 #print values
 
@@ -39,31 +37,4 @@ for i in values:
     #curr_url = values.pop(i)
     url = "http://"+ i + "search/" + "sss?query=" + query.replace(' ', '+') + "&sort=rel&minAsk=" + pricemin + "&maxAsk=" + pricemax
     print url
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+'''
