@@ -6,12 +6,25 @@ import time
 import urllib2
 import webbrowser
 from math import *
+import os.path
+import traceback
 
 results = re.compile('<p.+</p>', re.DOTALL) #Find pattern for search results.
 prices = re.compile('<span class="price".*?</span>', re.DOTALL) #Find pattern for
 pages = re.compile('button pagenum">.*?</span>')
 new_line = re.compile('\n.*?\n')
 delay = 10
+
+filename='craigressults.html'
+if os.path.isfile(filename):
+    try:
+        os.remove(filename)
+        print "file exists"
+    except OSError:
+        pass
+        traceback.print_exc()
+else:
+    print "file doesnt exist"
 
 ###########Product details and scrap cities and create url list
 #1.0. prodcut details
@@ -45,6 +58,9 @@ head = {'User-agent': ua}
 errorcount = 0
 dat = None
 
+print url
+time.sleep(1)
+
 req = urllib2.Request(url, dat, head)
 
 
@@ -58,11 +74,14 @@ except urllib2.HTTPError:
     if errorcount < 1:
         errorcount = 1
         print "Request failed, retrying in " + str(delay) + " seconds"
-        time.sleep(int(delay))
+        #time.sleep(int(delay))
         response = urllib2.urlopen(req)
 
 msg = response.read()
 #return msg;
+print msg
+
+#time.sleep(100)
 
 #3.2. Save the crawled page to variable curr_city_state
 
@@ -80,7 +99,7 @@ city = "Fayetville"
 cityurl = "http://fayar.craigslist.org"
 res = results.findall(msg)
 print res
-time.sleep(10)
+time.sleep(5)
 
 items_curr_city = re.sub(r'\n.*\n','',res[0],flags=re.IGNORECASE)
 print "New message : ",items_curr_city
@@ -89,31 +108,31 @@ res = items_curr_city
 '''
 res = str(res)
 print res
-time.sleep(10)
+#time.sleep(10)
 
 res = res.replace('[', '')
 print res
-time.sleep(10)
+#time.sleep(10)
 
 res = res.replace(']', '')
 print res
-time.sleep(10)
+#time.sleep(10)
 '''
 
 res = res.replace('<a href="' , '<a href="' + cityurl )
 print res
-time.sleep(10)
+#time.sleep(10)
 
 #res = re.sub(prices,'',res)
 res = "<BLOCKQUOTE>"*3 + res + "</BLOCKQUOTE>"*3
 print res
-time.sleep(10)
+#time.sleep(10)
 
 outp = open("craigresults.html", "a")
 outp.write(city)
 outp.write(str(res))
 print str(res)
-time.sleep(10)
+#time.sleep(10)
 outp.close()
 
 #7. Print report details

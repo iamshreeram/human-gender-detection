@@ -1,23 +1,39 @@
 import re
 import os
 import os.path
-import time
+from time import sleep as s
 import urllib2
 import webbrowser
 from math import *
+import urllib
+from bs4 import BeautifulSoup as bs
+from lxml import etree as e
 
 hreftag_remover = re.compile('<a href=\"//.*?>')
 dotorg_chooser = re.compile('.*?org.*?')
 
-
-#<a href="// >
-#file = open('UserAgent','r')
-#print file.read()
-
 print "\n*****************\n"
-
 craigsfile = open('craigs_html','r')
 msg = craigsfile.read()
+
+'''
+url = "https://www.craigslist.org/about/sites"
+soup = bs(urllib.urlopen(url))
+print "Soup:", soup
+s(100)
+'''
+
+'''
+for link in msg.findAll('href'):
+        print link.string
+        s(1)
+'''
+
+data = e.HTML(msg)
+anchor = data.xpath('//a[@class="title"]/text()')
+print "Anchor:", anchor
+
+s(100)
 
 values = hreftag_remover.findall(msg)
 print values
