@@ -8,6 +8,8 @@ import webbrowser
 from math import *
 import os.path
 import traceback
+import random
+
 
 results = re.compile('<p.+</p>', re.DOTALL) #Find pattern for search results.
 prices = re.compile('<span class="price".*?</span>', re.DOTALL) #Find pattern for
@@ -15,6 +17,27 @@ pages = re.compile('button pagenum">.*?</span>')
 new_line = re.compile('\n.*?\n')
 delay = 10
 
+
+#To find the list of urls
+url_file ='urllist'
+
+with open(url_file) as fpointer:
+    lines = fpointer.read().splitlines()
+
+for url in lines:
+    print url
+
+#To get any 1 browser agent
+# <editor-fold desc="User agent">
+agentfile ='UserAgent'
+agentreader = open(agentfile).read().splitlines()
+agent = random.choice(agentreader)
+ua= agent
+print ua
+# </editor-fold>
+
+
+#To check if the file exist already. If so, Remove it
 filename='craigressults.html'
 if os.path.isfile(filename):
     try:
@@ -35,7 +58,6 @@ query = raw_input("Search Term: ")
 pricemin = raw_input("Min Price: ")
 pricemax = raw_input("Max Price: ")
 
-
 ######## In Future Scope ############
 #2. create a url SET from cities
 #def get_craig_cities():
@@ -52,7 +74,7 @@ craigs_cities_url  = []
 #Creating URL
 #"http://" + city + ".craigslist.org/search/" + "sss?query=" + query.replace(' ', '+') + "&sort=rel&minAsk=" + pricemin + "&maxAsk=" + pricemax
 url = "http://fayar.craigslist.org/" + "search/" + "sss?query=" + query.replace(' ', '+') + "&sort=rel&minAsk=" + pricemin + "&maxAsk=" + pricemax
-ua = "Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US; rv:1.9.1.4) Gecko/20091007 Firefox/3.5.4"
+#ua = "Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US; rv:1.9.1.4) Gecko/20091007 Firefox/3.5.4"
 #Chrome User agent : Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36
 head = {'User-agent': ua}
 errorcount = 0
