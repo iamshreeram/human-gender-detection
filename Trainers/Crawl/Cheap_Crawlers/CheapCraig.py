@@ -132,6 +132,7 @@ outp = open("craigresults.html", "a")
 outp.write(city)
 outp.write(str(res))
 print str(res)
+#removing time stamp
 #time.sleep(10)
 outp.close()
 
