@@ -1,14 +1,14 @@
 # Variable declaration and imports
-import re
-import os
-import os.path
+import random
 import time
+import traceback
 import urllib2
 import webbrowser
-from math import *
+
+import os
 import os.path
-import traceback
-import random
+import os.path
+import re
 
 results = re.compile('<p.+</p>', re.DOTALL)  # Find pattern for search results.
 prices = re.compile('<span class="price".*?</span>', re.DOTALL)  # Find pattern for
@@ -58,13 +58,6 @@ def reportfile_exists():
 
 
 
-<<<<<<< HEAD
-outp = open("craigresults.html", "a")
-outp.write(city)
-outp.write(str(res))
-print str(res)
-#removing time stamp
-=======
 ######## In Future Scope ############
 # 2. create a url SET from cities
 # def get_craig_cities():
@@ -122,7 +115,6 @@ def parse_url(curr_url, dat, UserAgent):
 # 6. Capture required details and format
 # 6.1 Capture Required details -
 # def format_details:
->>>>>>> DEV
 #time.sleep(10)
 # time.sleep(10)
 # res = re.sub(prices,'',res)
