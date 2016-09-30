@@ -174,6 +174,8 @@ def reslist_creator(url,res):
 # 3.2. Save the crawled page to variable curr_city_state
 
 if __name__ == "__main__":
+    print "running craigslist"
+    time.sleep(1)
     query = "Manfrotto MT055CXPRO4"
     pricemin = "50"
     pricemax = "400"
@@ -187,6 +189,7 @@ if __name__ == "__main__":
         user_agent = get_agent()
         UserAgent = {'User-agent': user_agent}
         errorcount = 0
+
         dat = None
         # print curr_url
         res = parse_url(curr_url, dat, UserAgent)
