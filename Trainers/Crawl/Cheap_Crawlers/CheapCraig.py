@@ -101,6 +101,9 @@ def parse_url(curr_url, dat, UserAgent):
             print "Request failed, retrying in " + str(delay) + " seconds"
             time.sleep(int(delay))
             response = urllib2.urlopen(req)
+    except urllib2.URLError:
+        print "Error in URL. Moving on to next state."
+
     msg = response.read()
     res = results.findall(msg)
     return res
