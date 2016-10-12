@@ -12,6 +12,7 @@ You need to install below applications and how to install them
 
 ```
 * Python
+
 Below modules of python
 * threading 
 * urllib3 
@@ -32,7 +33,7 @@ python cheap_crawler.py
 Enter below details based on application request 
 
 ```
-1. Product name that you are looking for, 
+1. Product name that you need
 2. Price range and
 3. Location
 ```
