@@ -46,3 +46,4 @@ Application processes your request the records and opens webpage with list of ur
 3. Using exception block for all required modules to display proper error to user
 4. Running the application in cloud to ensure the ip is not getting blocked
 5. Making the application as loosely coupled
+6. Adding logger to debug the issue and identify the performance of each module
