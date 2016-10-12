@@ -38,3 +38,10 @@ Enter below details based on application request
 ```
 
 Application processes your request the records and opens webpage with list of urls that are in the prices range.
+
+## **Future Plans**
+1. Adding multi-threading to speed up the process
+2. Crawling and Scraping for places that are near by user location
+3. Using exception block for all required modules to display proper error to user
+4. Running the application in cloud to ensure the ip is not getting blocked
+5. Making the application as loosely coupled
