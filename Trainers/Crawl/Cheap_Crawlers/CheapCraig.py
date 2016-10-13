@@ -127,6 +127,7 @@ def parse_url(curr_url, dat, UserAgent):
 # def publish_report():
 # itemlist_creation() --> is called inside below function
 
+#Adding a new line make new commit
 def itemlist_creation(cityurl,res):
     print "res value inside itemlist_creation function :",res
     #time.sleep(1)
