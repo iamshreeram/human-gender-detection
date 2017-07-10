@@ -2,3 +2,14 @@
 /.idea/
 /Data/
 /Notebooks/
+/com/shreeram/work/
+/com/shreeram/perso/Downloader/
+/com/shreeram/perso/ling_gu/
+/com/shreeram/perso/Crawl/CraigsCrawl_v2.02/
+/com/shreeram/perso/Crawl/LoadUserAgents_v1/
+/com/shreeram/perso/Crawl/PageGetter_v1/
+/com/shreeram/perso/Crawl/pyProxy/
+/com/shreeram/perso/Crawl/Sample_Crawler/
+/com/shreeram/perso/Crawl/threads/
+/com/shreeram/perso/Crawl/__init__.py
+/.gitignore
