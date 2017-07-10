@@ -1,3 +1,11 @@
+################################################
+################################################
+# TITLE     : SENTIMENT ANALYZER FOR TWEETS
+# AUTHOR    : SHREERAM VAIDHYANATHAN
+# LICENCED  : APACHE
+################################################
+################################################
+
 from textblob import TextBlob
 import tweepy
 
@@ -11,16 +19,17 @@ auth.set_access_token(acces_tk,acces_tk_sec)
 
 api = tweepy.API(auth)
 
-"""
-tweets = api.search('shreeram')
+
+tweets = api.search('Trump')
 
 for tweet in tweets:
     print(tweet.text)
     analysis = TextBlob(tweet.text)
     print(analysis.sentiment)
-"""
+
 
 public_tweets = api.home_timeline()
+
 for tweet in public_tweets:
     analysis = TextBlob(tweet.text)
     print analysis, analysis.sentiment
