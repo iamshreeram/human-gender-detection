@@ -8,7 +8,8 @@ from keras.utils.data_utils import get_file
 
 class FaceCV(object):
     CASE_PATH = "./pretrained_models/haarcascade_frontalface_alt.xml"
-    WRN_WEIGHTS_PATH = "https://github.com/Tony607/Keras_age_gender/releases/download/V1.0/weights.18-4.06.hdf5"
+    WRN_WEIGHTS_PATH = "https://github.com/iamshreeram/human-gender-detection/releases/download/1.0/weights.hdf5"
+    
 
 
     def __new__(cls, weight_file=None, depth=16, width=8, face_size=64):
@@ -20,7 +21,7 @@ class FaceCV(object):
         self.face_size = face_size
         self.model = WideResNet(face_size, depth=depth, k=width)()
         model_dir = os.path.join(os.getcwd(), "pretrained_models").replace("//", "\\")
-        fpath = get_file('weights.18-4.06.hdf5',self.WRN_WEIGHTS_PATH,cache_subdir=model_dir)
+        fpath = get_file('weights.hdf5',self.WRN_WEIGHTS_PATH,cache_subdir=model_dir)
         self.model.load_weights(fpath)
 
     @classmethod
